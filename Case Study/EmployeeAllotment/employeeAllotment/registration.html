@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Registration</title>
+<link rel="stylesheet" type="text/css" href="reg.css">
+<script>
+
+function validate() 
+{
+var name=document.reg.name.value;
+  if(name==null || name == "" || name==" "|| name.length <3)
+    {
+	  
+    alert("Please Enter Name Correctly");
+        return false;
+    }
+    
+    var password = document.reg.password.value;
+    if (password==null || password == "" || password==" "|| password.length <6) {
+        alert("Enter password.. Minimum 6 characters");
+        return false;
+    }
+
+var dob=document.reg.dob.value;
+  if(dob==null || dob == "" || dob==" ")
+    {
+    alert("Enter Date Of Birth");
+        return false;
+    }
+  
+   var skill=document.reg.skill.value;
+  if(skill==null || skill == "" || skill==" ")
+    {
+    alert("Enter skill");
+        return false;
+    }
+  
+    var blood_group=document.reg.blood_group.value;
+  if(blood_group==null || blood_group == "" || blood_group==" ")
+    {
+    alert("Enter blood group");
+        return false;
+    }
+    
+    
+    var mobile=document.reg.mobile.value;
+  if(mobile==null || mobile == "" || mobile==" " ||mobile.length <10 ||mobile.length >10)
+    {
+    alert("Enter 10 digit mobile");
+        return false;
+    }
+    
+    
+    var x = document.forms["reg"]["email"].value;
+    var atpos = x.indexOf("@");
+    var dotpos = x.lastIndexOf(".");
+    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+        alert("Not a valid e-mail address");
+        return false;
+    } 
+  
+
+
+
+var address=document.reg.address.value;
+  if(address==null || address == "" || address==" ")
+    {
+    alert("Enter address");
+        return false;
+    }
+  $( function() {
+		$("#datepicker").datepicker();
+	});
+}
+
+
+
+</script>
+<!--  <style type="text/css">
+body {
+	background-size: 100% 100%;
+}
+</style>-->
+	
+	  <script type="text/javascript">
+      var datefield=document.createElement("input")
+      datefield.setAttribute("type", "date")
+      if (datefield.type!="date"){ //if browser doesn't support input type="date", load files for jQuery UI Date Picker
+         document.write('<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />\n')
+        document.write('<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"><\/script>\n')
+        document.write('<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"><\/script>\n')
+      }
+   </script>
+
+ <script>
+    if (datefield.type!="date"){ //if browser doesn't support input type="date", initialize date picker widget:
+       jQuery(function($){ //on document.ready
+           $('#DOB').datepicker();
+       })
+    }
+ </script>
+	
+
+</head>
+<body background="reg.jpg" >
+
+
+	<form action="hrHome.jsp">
+		<button type="submit">Home</button>
+	</form>
+
+	<form action="Reg_Servlet" method="post" name="reg"
+		onsubmit="return validate()" >
+		<table id="table1" align="center">
+			<tr>
+				<td>Username</td>
+				<td><input type="text" name="name" pattern="[A-Za-z]*" placeholder="Enter Username" required></td>
+			</tr>
+			<tr>
+				<td>Password</td>
+				<td><input type="password" name="password" placeholder="Enter Password" required></td>
+			</tr>
+			<tr>
+				<td>Gender</td>
+				<td>Male<input type="radio" name="gender" value="male">
+					Female<input type="radio" name="gender" value="female"></td>
+			</tr>
+			<tr>
+				<td>Date Of Birth</td>
+				<!--  <td><input type="date" id="DOB" name="dob"></td>-->
+				<td> <input type="date" id="DOB" name="dob" placeholder="MM/dd/yyyy" required /></td>
+			</tr>
+			<tr>
+			<td>Qualification</td>
+			
+				<td>BE<input type="checkbox" name="qualification" value="BE">
+					ME<input type="checkbox" name="qualification" value="ME">
+					MBA<input type="checkbox" name="qualification" value="MBA"></td>
+				
+			</tr>
+			<tr>
+				<td>Primary Skill</td>
+				<td><select name="skill" required="required">
+						<option value="">Skill</option>
+						<option value="">---</option>
+						<option value="C">C</option>
+						<option value="C++">C++</option>
+						<option value="Java">Java</option>
+						<option value=".Net">.Net</option>
+						<option value="SQL">SQL</option>
+						<option value="PLSQL">PLSQL</option>
+						<option value="Unix">Unix</option>
+						<option value="JSP">JSP</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>Blood Group</td>
+				<td><input type="text" name="blood_group" placeholder="Enter Bloodgroup" required></td>
+			</tr>
+			<tr>
+				<td>Mobile No</td>
+				<td><input type="text" name="mobile" pattern="[0-9]{1}[0-9]{9}" placeholder="Enter mobile number" required></td>
+			</tr>
+			<tr>
+				<td>Email</td>
+				<td><input type="email" name="email" placeholder="Enter email address" required></td>
+			</tr>
+			<tr>
+				<td>Address</td>
+				<td><textarea name="address" placeholder="Enter address" required></textarea></td>
+			</tr>
+
+			<tr>
+				<td><input type="submit" value="Submit"></td>
+				<td><input type="reset" value="Reset"></td>
+			</tr>
+		</table>
+	</form>
+
+	<!--  <img alt="ImageNotfound" src="images.jpg">-->
+</body>
+
+</html>

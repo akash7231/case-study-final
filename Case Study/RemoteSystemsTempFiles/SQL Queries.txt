@@ -1,0 +1,116 @@
+
+DROP TABLE reg_employee;
+DROP TABLE common_employee;
+DROP TABLE common_employee1;
+DROP TABLE date_employee;
+DROP TABLE mbu_employee;
+DROP TABLE refer_employee;
+DROP TABLE login;
+
+
+
+CREATE TABLE common_employee
+(
+	e_id nvarchar2(20),
+	e_name varchar2(30),
+	dob VARCHAR2(35),
+	gender varchar2(10),
+	qualification varchar2(20),
+	skill varchar2(20),
+	email_id nvarchar2(50),
+	mobile number(10,0),
+	doj VARCHAR2(35),
+	password varchar2(30),
+	app_id number NOT NULL
+);
+
+
+
+CREATE TABLE common_employee1
+(
+	e_id nvarchar2(20) NOT NULL,
+	e_name varchar2(30),
+	dob VARCHAR2(35),
+	gender varchar2(10),
+	qualification varchar2(20),
+	skill varchar2(20),
+	email_id nvarchar2(50),
+	mobile number(10,0),
+	doj VARCHAR2(35),
+	password varchar2(30),
+	app_id number NOT NULL,
+	PRIMARY KEY (e_id)
+);
+
+
+CREATE TABLE date_employee
+(
+	e_name varchar2(30),
+	dob VARCHAR2(35),
+	gender varchar2(10),
+	qualification varchar2(20),
+	skill varchar2(20),
+	email_id nvarchar2(50),
+	mobile number(10,0),
+	doj VARCHAR2(35),
+	app_id number NOT NULL,
+	password varchar2(30)
+);
+
+
+CREATE TABLE mbu_employee
+(
+	e_id nvarchar2(20) NOT NULL,
+	e_name varchar2(30),
+	gender varchar2(10),
+	doj VARCHAR2(35),
+	system_id varchar2(20)
+);
+
+
+CREATE TABLE refer_employee
+(
+	e_id nvarchar2(20) NOT NULL,
+	e_name varchar2(30),
+	skill varchar2(20),
+	gender varchar2(10),
+	qualification varchar2(20),
+	email_id nvarchar2(50),
+	doj VARCHAR2(35)
+);
+
+
+CREATE TABLE reg_employee
+(
+	e_name varchar2(30),
+	dob VARCHAR2(35),
+	gender varchar2(10),
+	qualification varchar2(20),
+	skill varchar2(20),
+	blood_group varchar2(6),
+	email_id nvarchar2(50),
+	mobile number(10,0),
+	address nvarchar2(100),
+	password varchar2(30),
+	app_id number NOT NULL,
+	PRIMARY KEY (app_id)
+);
+
+
+
+create table login(
+USERNAME  VARCHAR2(20),
+ PASSWORD VARCHAR2(20),
+ ROLE VARCHAR2(20));
+
+
+insert into login values(
+'akash','akash123','mbu');
+
+insert into login values(
+'faiz','faiz123','hr');
+
+
+
+
+
